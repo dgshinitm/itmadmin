@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.intothemobile.itmadmin.board.dao.BoardBaseMapper">
+	<insert id="insert" parameterType="com.intothemobile.itmadmin.board.entity.BoardBase" keyColumn="BOARD_SEQ" keyProperty="boardSeq">
+		INSERT INTO BOARD_BASE (
+			BOARD_SEQ
+			, BOARD_TP_CD
+			, BOARD_NM
+			, BOARD_DESC
+			, ROW_STATUS
+			, CREATE_DATE
+			, CREATE_BY
+			, MODIFIED_DATE
+			, MODIFIED_BY
+		) VALUES (
+			#{boardSeq}
+			, #{boardTpCd}
+			, #{boardNm}
+			, #{boardDesc}
+			, #{rowStatus}
+			, NOW()
+			, #{createBy}
+			, NOW()
+			, #{modifiedBy}
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.intothemobile.itmadmin.board.entity.BoardBase">
+		UPDATE BOARD_BASE
+		<set>
+			BOARD_TP_CD   = #{boardTpCd},
+			BOARD_NM      = #{boardNm},
+			BOARD_DESC    = #{boardDesc},
+			ROW_STATUS    = #{rowStatus},
+			MODIFIED_DATE = NOW(),
+			MODIFIED_BY   = #{modifiedBy}
+		</set>
+	</update>
+</mapper>

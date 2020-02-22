@@ -1,0 +1,20 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+    reload:
+      enabled: true
+  thymeleaf:
+    cache: false
+  datasource:
+    hikari:
+      driver-class-name: 'org.postgresql.Driver'
+      jdbc-url: 'jdbc:postgresql://localhost:5432/itmsample'
+      username: 'itmadmin'
+      password: 'itmpass'
+
+server:
+  port: 9090
+debug: true

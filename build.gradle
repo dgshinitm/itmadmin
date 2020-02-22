@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.intothemobile'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+buildDir = 'target'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir "${project.projectDir}/src/main/java"
+        }
+    }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+	implementation 'org.springframework.session:spring-session-core'
+	implementation 'com.google.code.gson:gson:2.8.5'
+	
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+}
